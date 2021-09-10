@@ -1,0 +1,76 @@
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+b8dfde127a29: Pulling fs layer
+b8dfde127a29: Verifying Checksum
+b8dfde127a29: Download complete
+b8dfde127a29: Pull complete
+Digest: sha256:7d91b69e04a9029b99f3585aaaccae2baa80bcf318f4a5d2165a9898cd2dc0a1
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+5e7dd90ca18f   hello-world   "/hello"   8 seconds ago   Exited (0) 7 seconds ago             angry_ritchie
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker rm angry_ritchie
+angry_ritchie
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker run -it ubuntu bash
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ winpty docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+35807b77a593: Pull complete
+Digest: sha256:9d6a8699fb5c9c39cf08a0871bd6219f0400981c570894cd8cbea30d3424a31f
+Status: Downloaded newer image for ubuntu:latest
+root@0c9cee3a86d8:/# exit
+exit
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker run -dt ubuntu bash
+8e6eea8f6e2fc639b4b97ed5d48b5879b22d8fc292c7e256dc11afb15a2ed83a
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+8e6eea8f6e2f   ubuntu    "bash"    6 seconds ago   Up 4 seconds             keen_lovelace
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker rm keen_lovelace
+Error response from daemon: You cannot remove a running container 8e6eea8f6e2fc639b4b97ed5d48b5879b22d8fc292c7e256dc11afb15a2ed83a. Stop the container before attempting removal or force remove
+
+hysuk@LAPTOP-AMNNTV1P MINGW64 ~/lab1-initial-setup-Woong-Kyeol-Huh (main)
+$ docker rm -f keen_lovelace
+keen_lovelace
